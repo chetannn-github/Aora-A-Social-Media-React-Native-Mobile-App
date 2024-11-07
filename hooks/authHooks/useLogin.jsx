@@ -1,10 +1,13 @@
 import { Alert } from "react-native";
 import { validateEmail } from "../../scripts/validateEmail.js";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useDispatch } from "react-redux";
+import {addLoggedInUser} from "../../redux/userSlice.js"
 
 
 const useLogin = () => {
     const apiUrl = "http://192.168.248.183:3000/api/auth/login";
+    let dispatch = useDispatch();
     
     let handleLogin = async(userName,password) =>{
         const requestBody = {password,userName}
@@ -33,6 +36,9 @@ const useLogin = () => {
             }else{
                 Alert.alert(userInfo.error);
             }
+
+            // redux me bhii update krdoo
+            dispatch(addLoggedInUser(userInfo?.user));
            
             
         } catch (error) {
