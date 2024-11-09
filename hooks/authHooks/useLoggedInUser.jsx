@@ -25,7 +25,7 @@ function useLoggedInUser() {
                 dispatch(addLoggedInUser(user));
             }
             console.log(user);
-            
+             
         };
         initializeUser ();
     }, []);
