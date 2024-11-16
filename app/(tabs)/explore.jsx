@@ -15,7 +15,7 @@ const explore = () => {
           
         </View>
         <ScrollView className="flex z-20 h-full w-full  bg-purple-600 flex-1 mt-4">
-          <View className="flex flex-row flex-wrap">
+          <View className="flex flex-row flex-wrap justify-between ">
             {[1,2,45,4,65,6,611].map((value)=>(<Reel key={value}/>))}
           </View>
           

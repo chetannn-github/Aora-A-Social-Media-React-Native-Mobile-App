@@ -4,6 +4,7 @@ import React from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import UserProfileHeader from '../../components/Post/UserProfileHeader';
 import { Ionicons } from '@expo/vector-icons';
+import AllPosts from '../../components/Post/AllPosts';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -19,18 +20,20 @@ export default function profile() {
           tabBarLabelStyle: { fontSize: 14, fontWeight: '600', color: 'white' }, // Tab label styles
         }}
       >
-        <Tab.Screen
+        <Tab.Screen 
           name="Home"
-          component={HomeScreen}
+          component={AllPosts}
           options={{
             tabBarIcon: ({ color ,focused}) => (
               <Ionicons name={focused? "happy" : "happy-outline"} size={20}  color={focused ? '#FF8c00' : '#FFFFFF'}/>
             ),
+            animationEnabled :true,
+
           }}
         />
         <Tab.Screen
           name="Profile"
-          component={ProfileScreen}
+          component={AllPosts}
           options={{
             tabBarIcon: ({ color , focused}) => (
               <Ionicons name={focused? "film" : "film-outline"} size={20} color={focused ? '#FF8c00' : '#FFFFFF'} />
@@ -39,7 +42,7 @@ export default function profile() {
         />
         <Tab.Screen
           name="Liked"
-          component={LikedScreen}
+          component={AllPosts}
           options={{
             tabBarIcon: ({ color , focused }) => (
               <Ionicons name={focused? 'heart' : 'heart-outline'} size={20} color={focused ? '#FF8c00' : '#FFFFFF'} />
